@@ -1,0 +1,45 @@
+baseURL = "http://tonyjunkes.com/"
+languageCode = "en-us"
+title = "A Blog By Tony Junkes"
+theme = "beautifulhugo"
+pygmentsUseClasses = true
+pygmentCodeFences = true
+disqusShortname = "tonyjunkes"
+googleAnalytics = "UA-2236388-7"
+paginatePath = "blog/page/"
+
+[permalinks]
+  post = "/blog/:slug/"
+  page = "/:filename/"
+
+[Params]
+  subtitle = "Web Development, JVM Languages & then some..."
+  logo = "img/aboutme.jpg"
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = true
+  
+[Author]
+  name = "Tony Junkes"
+  github = "cfchef"
+  gitlab = "tonyjunkes"
+  twitter = "tonyjunkes"
+  linkedin = "tonyjunkes"
+  stackoverflow = "users/985709/tony-junkes"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 3
+
+[[menu.main]]
+    name = "About Me"
+    url = "/about"
+    weight = 3
+
+[[menu.main]]
+    name = "Contact"
+    url = "/contact"
+    weight = 3
