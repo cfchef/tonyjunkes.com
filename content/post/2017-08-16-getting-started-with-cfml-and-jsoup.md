@@ -1,13 +1,13 @@
 ---
-title: "Getting Started With Jsoup & CFML"
-slug: "getting-started-with-jsoup-and-cfml"
+title: "Getting Started With CFML & jsoup"
+slug: "getting-started-with-cfml-and-jsoup"
 date: 2017-08-16
 draft: true
 ---
 
 Over the years I've made repeatable use of the jsoup library so I figured it'd be nice to put out a little primer of using it with CFML.
 
-### What Is jsoup?
+## What Is jsoup?
 
 From the official site:
 
@@ -23,131 +23,107 @@ jsoup allows you to do such things as:
 > - Clean user-submitted content against a safe white-list, to prevent XSS attacks
 > - Output tidy HTML
 
-### Getting Started
+## Getting Started
+
+There are a few ways to go about integrating jsoup into an application.
 
 #### Installing With CommandBox
 
+> Note: This assumes CommandBox version 3.7+
+
+From the CommandBox CLI, create a new project directory: `mkdir cfml-jsoup-example`, and `cd` to the new folder. From there run `init cfml-jsoup-example` to create a `box.json` for your project.
+
+Inside of box.json you want to a dependency with a JAR endpoint that points to the URL where the JAR file is located. The installed JAR will always be homed in a directory named after the JAR file; but you can place that folder in any "root" folder of your choice.
+
+```
+{
+    "name":"cfml-jsoup-example",
+    "dependencies":{
+        "jsoup-1.10.3":"jar:https://jsoup.org/packages/jsoup-1.10.3.jar"
+    },
+    "installPaths":{
+        "jsoup-1.10.3":"lib\\jsoup-1.10.3"
+    }
+}
+``` 
+
 #### Installing Manually
 
-To manually install jsoup, you can simply go to the [official site download page](https://jsoup.org/download) and pull down the latest `core library` release.
+To manually install jsoup, you can simply go to the [official site download page](https://jsoup.org/download) and pull down the latest `core library` release. Place the JAR file in a folder of your choice within your project.
 
-From there you can either drop the JAR into the `/lib` directory of your CFML engine that's added to the class path...
+#### Mapping the JAR In Application.cfc
 
-> Note: Paths may vary.
->
-> - For Adobe ColdFusion: `your_cf_install/lib`.
-> - For Lucee: `your_lucee_site/WEB-INF/lucee-server/lib`
-
-Or you can add the JAR to a directory of your choice and map it in your project's `Application.cfc` via `this.javaSettings`.
+Now we need to add the JAR to the Java Class Path. You can map it in your project's `Application.cfc` via `this.javaSettings`.
 
 ```
-this.javaSettings = {loadPaths: ["./your_dir"]};
+this.javaSettings = { loadPaths: ["./your_dir"] };
 ```
 
-To learn more on integrating 3rd party Java libraries in CFML, check out the [CFDocs Java Integration Guide](https://cfdocs.org/java).
+> To learn more on integrating 3rd party Java libraries in CFML, check out the [CFDocs - Java Integration Guide](https://cfdocs.org/java).
+
+
+## Examples
+
+> Note: The examples assume being wrapped in `<cfscript>` tags or properly scoped inside of a function.
+
+### Parsing Documents
+
+A jsoup document can be a string of HTML-like data or data read in from a file as a string.
+
+#### Parse A Document From A HTML String
 
 ```
-<cfscript>
-
-	// Create Jsoup object
-	Jsoup = createObject("java", "org.jsoup.Jsoup");
-	// Create some markup...
-	html = '<html><head><title>Hello World!</title></head><body><h1>A Header</h1><p>Some content. <a href="##">A link.</a></p></body></html>';
-	// Parse it into a Jsoup Document
-	doc = Jsoup.parse(html);
-
-	// Create a Node object
-	TextNode = createObject("java", "org.jsoup.nodes.TextNode");
-	Node = createObject("java", "org.jsoup.nodes.Node");
-	replace = TextNode.init("Steal this link!", "");
-
-	writeDump(replace);
-	writeDump(doc.select("a")[1].replaceWith(replace));
-	writeDump(doc.text());
-	writeDump(doc.body().toString());
-
-
-<cfscript>
-```
-
-
-Examples
-1- Parsing a HTML string
-In the first example, we are going to parse a HTML string.
-
-```
-<cfscript>
-	Jsoup = createObject("java", "org.jsoup.Jsoup");
-
-	html = "<html><head><title>My title</title></head><body>Body content</body></html>";
-    Jsoup.parse(html);
-	title = doc.title();
-	body = doc.body().text();
-
-	writeOutput("Title: #title#");
-	writeOutput("Body:<br>#body#");
-<cfscript>
-```
-
-html = "<html><head><title>My title</title></head><body>Body content</body></html>";
-
-This string contains simple HTML data.
-
-doc = Jsoup.parse(html);
-
-With the Jsoup's parse() method, we parse the HTML string. The method returns an HTML document.
-
+// Create the jsoup object
+Jsoup = createObject("java", "org.jsoup.Jsoup");
+// HTML string
+html = "<html><head><title>CFML & jsoup Example</title></head><body>Content about CFML and jsoup.</body></html>";
+// Parse the string
+Jsoup.parse(html);
+// Extract content
 title = doc.title();
-
-The document's title() method gets the string contents of the document's title element.
-
 body = doc.body().text();
 
-The document's body() method returns the body element; its text() method gets the text of the element.
-
-2- Parsing a local HTML file
-In the second example, we are going to parse a local HTML file. We use the overloaded Jsoup.parse() method that takes a File object as its first parameter.
+writeOutput("Title: #title#");
+writeOutput("Body:<br>#body#");
 ```
-<!-- HTML file -->
+
+The example code instantiates the Jsoup class and parses a string of HTML. This returns a [Document class object](https://jsoup.org/apidocs/org/jsoup/nodes/Document.html) that we can act on with its methods.
+
+#### Parsing A Document From HTML Files
+
+Consider the following example HTML...
+
+```
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My title</title>
+        <title>CFML & jsoup Example</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <div id="mydiv">Contents of a div element</div>
+        <header id="header">Getting Started With CFML & jsoup</header>
+		<div>Some content...</div>
     </body>
 </html>
 ```
-For the example, we use the above HTML file.
+
+Now read it in with a Java File object and parse it.
 
 ```
-<cfscript>
-	Jsoup = createObject("java", "org.jsoup.Jsoup");
-	JFile = createObject("java", "java.io.File");
+// Create the jsoup object
+Jsoup = createObject("java", "org.jsoup.Jsoup");
+// Create the File object
+JFile = createObject("java", "java.io.File");
+// Get the absolute file path
+fileName = expandPath("./path/to/file.html");
+// Parse the File object and extract data
+doc = Jsoup.parse(JFile.init(fileName), "utf-8");
+header = doc.getElementById("header");
 
-	fileName = "path/to/file.html";
-	doc = Jsoup.parse(JFile.init(fileName), "utf-8");
-	divTag = doc.getElementById("mydiv");
-
-	writeOutput(divTag.text());
-<cfscript>
+writeOutput(header.text());
 ```
 
-In this example:
 
-   doc = Jsoup.parse(JFile.init(fileName), "utf-8");
-
-We parse the HTML file with the Jsoup.parse() method.
-
-divTag = doc.getElementById("mydiv");
-
-With the document's getElementById() method, we get the element by its ID.
-
- writeOutput(divTag.text());
-
-The text of the tag is retrieved with the element's text() method.
 
 3- Reading a web site's title
 In the following example, we scrape and parse a web page and retrieve the content of the title element.
@@ -321,4 +297,27 @@ Getting form input element in a webpage is very simple. Find the FORM element us
 		writeOutput("Param name: #key#<br>Param value: #value#");  
 	});
 <cfscript>
+```
+
+
+
+```
+// Create Jsoup object
+Jsoup = createObject("java", "org.jsoup.Jsoup");
+
+// Create some markup...
+html = '<html><head><title>Hello World!</title></head><body><h1>A Header</h1><p>Some content. <a href="##">A link.</a></p></body></html>';
+
+// Parse it into a Jsoup Document
+doc = Jsoup.parse(html);
+
+// Create a Node object
+TextNode = createObject("java", "org.jsoup.nodes.TextNode");
+Node = createObject("java", "org.jsoup.nodes.Node");
+replace = TextNode.init("Steal this link!", "");
+
+writeDump(replace);
+writeDump(doc.select("a")[1].replaceWith(replace));
+writeDump(doc.text());
+writeDump(doc.body().toString());
 ```

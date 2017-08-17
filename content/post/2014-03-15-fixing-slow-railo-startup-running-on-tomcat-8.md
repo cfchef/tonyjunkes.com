@@ -7,7 +7,7 @@ tags: ["CFML", "Lucee", "Apache Tomcat"]
 
 Over the last week++ I have been taking on the role of Server Admin. I by no means consider myself to be one, let alone good at it; but, since I manage my own VPS through Viviotech, it has deeply become a necessity where there comes that time when I need to be that guy. Quite often more than less.
 
-### My situation...
+## My situation...
 
 As of late I've been battling frequent occurrences where my server gets brought to it's knees from hits by various bots; among other things. In some cases the hang would wig out a request and crash the expected result ending in a barrage of errors. Page requests would take 5-10mins for every single request! After playing with how I was distributing memory and applying some better handling of objects and sessions, things have been running smooth. From there I decided I wanted to go the extra step and show some love to the stack of the server side. So I upgraded Java to the latest (7u51) and Tomcat 7.0.52 to version 8.0(.3).
 
@@ -15,7 +15,7 @@ Upgrading Tomcat in itself was a bit of a tug but nothing insane. I was hoping i
 
 Upon getting things settled and sites rendering again I instantly hit a noticeable drawback - really slow server startup. In my case about 1-2 minutes! All in all, I host 7 sites of a small to moderate size with no steep requirements at start/render time. This delay was a smack in the face difference. So I took a look in the catalina.out log file and came across a few warnings.
 
-### The solution among some other fixes...
+## The solution among some other fixes...
 
 Take note that some of these warnings probably/definitely do not effect performance, if at all. I'm simply going to knock 'em out here as I did at the time.
 
@@ -66,7 +66,7 @@ After restart there was no more occurrence of the warning and things continued t
 
 Depending on what version of Tomcat you are using (It could vary from what I've noticed), there are some directories that you can do away with in the "/webapps" folder inside of Tomcat. These dirs include /docs, /examples, /host-manager and /manager (in Tomcat 8 at least). Make sure to leave "/ROOT". The docs folder is filler as I see it and the other 3 are processed during Tomcat's startup. This will incur a check through each WEB-INF dir; especially if Jar Scanning is on. I've had them removed for some time now and seen no issue since.
 
-### Some things I haven't looked into. . .
+## Some things I haven't looked into. . .
 
 The above helped me a great deal. Hopefully it helps someone else. There are some other bits that I've started to look into regarding performance at startup but have yet to dive into and test.
 

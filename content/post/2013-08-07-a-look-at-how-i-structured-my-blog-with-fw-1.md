@@ -16,7 +16,7 @@ If you are not familiar with Framework One, I highly recommend checking out the 
 
 So let's rip apart and take a look at some example directory structures I commonly use. Some of these files and directories are pretty straight forward but I'll go over every one in some detail.
 
-### The Root Level
+## The Root Level
 
 ```
 | ROOT
@@ -106,7 +106,7 @@ Any URL rewrites that I don't handle in the Application.cfc are handled here usi
 
 This is the heart of my application. I like to set the base location in FW/1 to another directory (like so) to separate the innards of the application from the main level where site-wide content may be held (assets, Sitemap.xml etc.). My public files, admin, helper files and CFCs are all kept in this directory.
 
-### The Framework One Base Location - /app
+## The Framework One Base Location - /app
 
 ```
 | /app
@@ -150,7 +150,7 @@ This is where I keep widget like apps or pods. For example I have modules for re
 
 As typically used, I keep utility functions and CFCs here. For example I have components for form validation, formatting etc.
 
-### There we have it ;)
+## There we have it ;)
 
 That's a rough idea on how I've laid out the overall structure of the blog. So much of it has been rigged together though that I change and re-factor constantly. For the better. I didn't touch on much code but this structure is what helps the application make sense and flow so far. Hopefully this gives some ideas or direction on how to take your FW/1 app. As I progress, I definitely want to follow up with some code examples. I just haven't crossed anything that seemed worthy.
 

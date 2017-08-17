@@ -7,7 +7,7 @@ tags: ["Lucee", "Apache Tomcat"]
 
 Recently I learned that Tomcat 8 has its own built in approach to handling URL rewriting to achieve things like SES (pretty) URLs. Personally I do URL rewrites from Nginx, as it's the forward facing web server and proxy to all of my Lucee apps that live in Tomcat; but, for the sake of learning, I wanted to take a look at what it had to offer.
 
-### Setting it up...
+## Setting it up...
 
 Reading through the [Tomcat 8 Rewrite Docs](http://tomcat.apache.org/tomcat-8.0-doc/rewrite.html), I was delighted to see that they use a similar approach to syntax as Apache's Mod_Rewrite so the learning curve of writing actual rewrites is minimal to anyone who's worked with Apache in the past.
 

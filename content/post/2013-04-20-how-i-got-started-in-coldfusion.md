@@ -11,7 +11,7 @@ One article that I did in fact put up on the site was my take on how I came into
 
 So now I shall try and articulate a bit more on the topic. . . Belated or not ;)
 
-### The Early Years For Me
+## The Early Years For Me
 
 When I was in high school (2003ish) I started to really picture an interest in the tech world. Originally it was more Graphic Design related. Reps from local design colleges would come into a 3D Comprehensive Art class I was taking and discuss areas of focus, degrees and the lot. Computer Animation sounded cool and seeing the products of talented design work from PhotoShop and Illustrator amazed me. I started to imagine working those mediums more and more (Computer Animation never came to light though hehe).
 
@@ -19,7 +19,7 @@ Around that timeframe I was working as a assistant to the Head Instructor of a K
 
 At this point in time I had zero experience in the web world but was provided tools to learn from. I was given a book on ColdFusion 4.5 to read, print outs of CF and HTML code of some applications (a news and gallery app) and told to read through and, piece by piece, try to understand what was going on and report back for a bit of Q&A with clarification on it all as I went. At the same time there was a dev environment set up for me to play around with HTML, CSS and CFML. Lots of trial and error of seeing desired and not so desired output. For whatever reason though, things did not click so perfectly as I might have wanted. My interest fell in and out and any true work in the field would not come until later.
 
-### A Slight Turning Point
+## A Slight Turning Point
 
 Later on in high school I took a computer programming class that was all Microsoft Visual Basic. An interesting class consisting of odd topic programming tasks of varying difficulties that I'm pretty sure will never occur in real life. Always being taught and lectured with some story behind it that involved mass consumption of Corona and staying up late. The awkwardly depicted life of a programmer.
 
@@ -27,7 +27,7 @@ The teacher was a die hard Republican who would talk endlessly about George Bush
 
 Amongst it all, I now was engulfed in a different, but similar, world of software development. I don't know what it was at this point but something suddenly clicked when it came to thinking in the most basic thoughts of programming. The concept of variables, input, output, conditionals; they all made sense to me in ways that they did not before. This would later make things click for me in ColdFusion. Still, I wasn't entirely sold on doing web related bits. The next level of this class was C++ and .NET which I passed on (though I wish I didn't now).
 
-### The True Turning Point
+## The True Turning Point
 
 My real step into ColdFusion was in 2005. I was working in a new Karate studio run by my previous co-worker and her husband and was offered a chance to work on the studio website and any related design work. My largest learning experiences were then and there. Helping build the site from the ground up and working on the design and graphics for layouts and print items. If I recall, we were running things on CF5. I learned quite a bit in that time. As the years would go on I would continue to help with various projects; improving as I went. More and more concepts clicking into place in my mind. Some things completely racking but in the end I would come to understand how they worked.
 

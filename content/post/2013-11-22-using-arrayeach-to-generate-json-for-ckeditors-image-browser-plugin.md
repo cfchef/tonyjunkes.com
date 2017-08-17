@@ -13,7 +13,7 @@ Looking through the plugins list on the CKEditor site I came across the [Image B
 
 There's most likely more than one way to skin this cat but in the beginning I wasn't getting the desired output of structure. I then decided to give ColdFusion 10's arrayEach() a shot and it worked like a charm!
 
-### Code!
+## Code!
 
 Firstly, the expected JSON would look something like this...
 

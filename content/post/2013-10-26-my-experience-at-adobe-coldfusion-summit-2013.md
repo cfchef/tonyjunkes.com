@@ -8,7 +8,7 @@ So I'm sitting at the airport waiting for my first of two flights back to Florid
 
 This could get lengthy so I warn you now.
 
-### The Conference & Keynotes as a Whole. . .
+## The Conference & Keynotes as a Whole. . .
 
 I'm gonna skip some of the dull bits; although I must say the breakfasts & lunches provided were the best I've ever had at a conference. Not sure if that says anything haha!
 
@@ -40,7 +40,7 @@ CF Hour's 200th episode later that evening of day 1. . . Hilarious! That is all.
 
 I enjoyed the keynote on day 2. It was an interesting presentation by Avi Rubin that really made you think twice about how secure something actually is. The presentation of ABE encryption and a project called CHARM was pretty cool as well. On a side note - The underlying encryption methods shown were written in C. I'm not surprised his examples were in Python. Some people felt he was trying to sell us on using Python and/or complaining that it wasn't "ColdFusion oriented". Really? Learn from example people. It was being presented from a real world scenario and could easily be self-portrayed in a CF mindset. Jason Dean did tweet that a Java implementation was being released down the road. That's cool. You can learn more about CHARM here.
 
-### Sessions!
+## Sessions!
 
 I loved the sessions I attended. Much of my choices were either a attempt to grow my knowledge or simply harden it and reinforce what I (think I) already know. I was delighted to attend some of the advanced topics and understand and grasp things. It's so reassuring when you listen to the pros go over something and you're already doing it by habit.
 
@@ -74,7 +74,7 @@ I don't unit test my code. I don't know how; but I've been wanting to learn so t
 
 Security means a lot to me and I'm sorry I missed Jason's part I of this session. This is one more thing where I know I am no pro; but want to try and comprehend as much as possible. This, after all, leads to implementation of better practices. In this session he covered a good amount on cryptography and encryption in ColdFusion, Session Hijacking, XSS (Cross Site Scripting) and OWASP's ESAPI project. Jason does a good job at making the point quite clear; which is important with security. He also brought up a lot of settings and features of ColdFusion that are not optimal for solid security practices by default and how to handle that. "Adobe, fix that!".
 
-### In Closing. . .
+## In Closing. . .
 
 If you're interested in checking out the slides from various presenters... (the link is long dead). If anything I tweeted about ColdFusion Dazzle sounded interesting (which it is!), look for Rakshith's slides on "Adobe ColdFusion - The Road Ahead". If they're not there, harass him on Twitter :)
 
