@@ -1,6 +1,6 @@
 ---
 title: SES URLs In FW/1 With Routes & Mod_Rewrite
-slug: ses-urls-in-fw-1-with-routes-and-mod-rewrite
+slug: ses-urls-in-fw1-with-routes-and-mod-rewrite
 aliases: /blog/ses-urls-in-fw-1-with-routes-and-mod-rewrite
 date: 2013-06-22
 tags: ["ColdFusion", "FW1", "Apache Mod_Rewrite"]

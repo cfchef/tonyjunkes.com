@@ -2,7 +2,7 @@
 title: Exposing Private Fields in Jsoup's Whitelist Class with Reflection
 slug: exposing-private-fields-in-jsoups-whitelist-class-with-reflection
 date: 2015-06-18
-tags: ["CFML", "Jsoup", "Java", "Stack Overflow"]
+tags: ["CFML", "jsoup", "Java", "Stack Overflow"]
 ---
 
 In recent days I've been trying to knock out some answers to questions on Stack Overflow. I've actually been pretty successful in helping some people out, so I'm happy about that.
