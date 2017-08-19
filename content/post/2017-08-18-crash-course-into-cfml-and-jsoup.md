@@ -1,6 +1,6 @@
 ---
 title: "Crash Course Into CFML & jsoup"
-slug: "crah-course-into-cfml-and-jsoup"
+slug: "crash-course-into-cfml-and-jsoup"
 date: 2017-08-18
 draft: false
 tags: ["CFML","jsoup","Java"]
