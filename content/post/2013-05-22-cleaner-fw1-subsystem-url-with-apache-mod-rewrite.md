@@ -1,9 +1,9 @@
 ---
 title: Cleaner FW/1 Subsystem URL With Apache Mod_Rewrite
-slug: cleaner-fw-1-subsystem-url-with-apache-mod-rewrite
+slug: cleaner-fw1-subsystem-url-with-apache-mod-rewrite
 aliases: /blog/cleaner-fw-1-subsystem-url-with-apache-mod-rewrite
 date: 2013-05-22
-tags: ["ColdFusion", "FW1"]
+tags: ["ColdFusion", "FW1", "Apache Mod_Rewrite"]
 ---
 
 This is more of a reference for myself but if anyone is as bad as I am at URL rewriting (and regex for that matter) then this could be of some help.

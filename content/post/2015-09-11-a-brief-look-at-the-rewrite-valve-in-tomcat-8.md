@@ -2,7 +2,7 @@
 title: A Brief Look at the Rewrite Valve in Tomcat 8
 slug: a-brief-look-at-the-rewrite-valve-in-tomcat-8
 date: 2015-09-11
-tags: ["Lucee", "Apache Tomcat"]
+tags: ["Lucee", "Apache Tomcat", "URL Rewrites"]
 ---
 
 Recently I learned that Tomcat 8 has its own built in approach to handling URL rewriting to achieve things like SES (pretty) URLs. Personally I do URL rewrites from Nginx, as it's the forward facing web server and proxy to all of my Lucee apps that live in Tomcat; but, for the sake of learning, I wanted to take a look at what it had to offer.

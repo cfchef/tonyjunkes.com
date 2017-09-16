@@ -56,15 +56,14 @@ In my examples I'll be using Lucee and an H2 database using MySQL dialect, but y
 You'll want a basic FW/1 application fleshed out. Create a project directory and name it fw1-qb-example (or whatever you'd like). Next, build out a folder structure that follows the standard conventions like so...
 
 ```
-| fw1-qb-example
-|- controllers
-|- layouts
-|- views
-|- model
-|-- data
-|- subsystems
-|- views
-|-- main
+fw1-qb-example
+|- /controllers
+|- /layouts
+|- /model
+|-- /data
+|- /subsystems
+|- /views
+|-- /main
 |--- default.cfm
 |--- error.cfm
 |- Application.cfc
@@ -166,14 +165,14 @@ qb.diLocations: "/qb/models",
 qb.diConfig: {
     loadListener: function(di1) {
         di1.declare("BaseGrammar").instanceOf("qb.models.Query.Grammars.Grammar").done()
-            .declare("MySQLGrammar").instanceOf("qb.models.Query.Grammars.MySQLGrammar").done()
-            .declare("QueryUtils").instanceOf("qb.models.Query.QueryUtils").done()
-            .declare("Builder").instanceOf("qb.models.Query.Builder")
-            .withOverrides({
+           .declare("MySQLGrammar").instanceOf("qb.models.Query.Grammars.MySQLGrammar").done()
+           .declare("QueryUtils").instanceOf("qb.models.Query.QueryUtils").done()
+           .declare("Builder").instanceOf("qb.models.Query.Builder")
+           .withOverrides({
                 grammar: di1.getBean("MySQLGrammar"),
                 utils: di1.getBean("QueryUtils"),
                 returnFormat: "array"
-            });
+           });
     }
 }
 ```
@@ -249,7 +248,7 @@ posts = builder.from("Posts")
 
 ## What's Next?
 
-That was just a few examples to scratch the surface of what QB is capable of. There currently is no in-depth documentation that I know of but you can refer to the [GitHub repository README](https://github.com/elpete/qb/blob/development/README.md) for more examples. You can always glance through the source code to see what has been implemented as well.
+That was just a few examples to scratch the surface of what QB is capable of. You can refer to the [Official QB Docs](https://github.com/elpete/qb-docs) for more examples. You can always glance through the source code to see what has been implemented as well.
 
 Kudos to Eric Peterson for creating such a cool library.
 
