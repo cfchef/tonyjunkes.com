@@ -22,11 +22,27 @@
       -->
 
       {{ if (.Params.comments) | or (and (or (not (isset .Params "comments")) (eq .Params.comments nil)) (.Site.Params.comments)) }}
+        <div class="banner">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- blog_ad -->
+          <ins class="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-1195575544389264"
+              data-ad-slot="4020979331"
+              data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
         {{ if .Site.DisqusShortname }}
           <div class="disqus-comments">
             {{ template "_internal/disqus.html" . }}
           </div>
         {{ end }}
+        <div class="banner">
+          <a href="https://gumroad.com/a/958477427" target="_blank"><img src="/img/rest_assured_banner.png" alt="Rest Assured: A Pragmatic Approach to API Design"></a>
+        </div>
       {{ end }}
 
     </div>
