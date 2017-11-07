@@ -164,10 +164,10 @@ Add this block of code to the empty `variables.framework.subsystems` struct in `
 qb.diLocations: "/qb/models",
 qb.diConfig: {
     loadListener: function(di1) {
-        di1.declare("BaseGrammar").instanceOf("qb.models.Query.Grammars.Grammar").done()
-           .declare("MySQLGrammar").instanceOf("qb.models.Query.Grammars.MySQLGrammar").done()
+        di1.declare("BaseGrammar").instanceOf("qb.models.Grammars.Grammar").done()
+           .declare("MySQLGrammar").instanceOf("qb.models.Grammars.MySQLGrammar").done()
            .declare("QueryUtils").instanceOf("qb.models.Query.QueryUtils").done()
-           .declare("Builder").instanceOf("qb.models.Query.Builder")
+           .declare("QueryBuilder").instanceOf("qb.models.Query.QueryBuilder")
            .withOverrides({
                 grammar: di1.getBean("MySQLGrammar"),
                 utils: di1.getBean("QueryUtils"),
@@ -185,7 +185,7 @@ So what's going on here?
 
 `qb.diConfig` is more involved...
 
-We define a [load listener](http://framework-one.github.io/documentation/using-di-one.html#using-load-listeners) with a closure that takes the DI/1 object as an argument. This is for defining our bean factory settings. In the function block, we use DI/1's convenient builder syntax to declare individual bean objects of QB's components. The `declare()` method is used to define an "alias" to the component. This is useful for having DI/1 automagically satisfy an object's constructor arguments. The last declaration of "Builder" calls `withOverrides()` to pass in specific arguments to the the object's constructor, or init method.
+We define a [load listener](http://framework-one.github.io/documentation/using-di-one.html#using-load-listeners) with a closure that takes the DI/1 object as an argument. This is for defining our bean factory settings. In the function block, we use DI/1's convenient builder syntax to declare individual bean objects of QB's components. The `declare()` method is used to define an "alias" to the component. This is useful for having DI/1 automagically satisfy an object's constructor arguments. The last declaration of "QueryBuilder" calls `withOverrides()` to pass in specific arguments to the the object's constructor, or init method.
 
 > Note: The declaration of MySQLGrammar. This is specific support in QB for the MySQL dialect. There are other options available. See the /qb/models/Query/Grammars folder.
 
@@ -199,7 +199,7 @@ From CommandBox we just need to enter `start` and a server will start up and ope
 To use QB from DI/1, we can call on it like so:
 
 ```
-builder = getBeanFactory("qb").getBean("Builder");
+builder = getBeanFactory("qb").getBean("QueryBuilder");
 ```
 
 Let's assume some simple scenarios...
@@ -248,7 +248,7 @@ posts = builder.from("Posts")
 
 ## What's Next?
 
-That was just a few examples to scratch the surface of what QB is capable of. You can refer to the [Official QB Docs](https://github.com/elpete/qb-docs) for more examples. You can always glance through the source code to see what has been implemented as well.
+That was just a few examples to scratch the surface of what QB is capable of. You can refer to the [Official QB Docs](https://elpete.gitbooks.io/qb/content/) for more examples. You can always glance through the source code to see what has been implemented as well.
 
 Kudos to Eric Peterson for creating such a cool library.
 
