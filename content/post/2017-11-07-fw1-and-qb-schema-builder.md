@@ -62,7 +62,7 @@ qb.diConfig: {
 
 #### Breaking It Down
 
-`qb.diLocations: "/qb/models"` tells DI/1 to create a subsystem bean factory and gather objects in /qb/models based on the default conventions.
+`qb.diLocations: "/models"` tells DI/1 to create a subsystem bean factory and gather objects in /qb/models based on the default conventions.
 
 In `qb.diConfig` we define a [load listener](http://framework-one.github.io/documentation/using-di-one.html#using-load-listeners) with a closure that takes the DI/1 object as an argument. This is for defining our bean factory settings. In the function block, we use DI/1's builder syntax to declare individual bean objects of QB's components. The `declare()` method is used to define an "alias" to the component. This is useful for having DI/1 automagically satisfy an object's constructor arguments. The declaration of "QueryBuilder" calls `withOverrides()` to pass in specific arguments to the object's constructor, or init method. Then we define "SchemaBuilder" as a transient object which takes the same grammar object (MySQLGrammar) as QueryBuilder.
 
@@ -213,7 +213,7 @@ QueryBuilder.from("Posts")
 
 ## What's Next?
 
-Refer to the [Official QB Docs](https://github.com/elpete/qb-docs) for more examples.
+Refer to the [Official QB Docs](https://elpete.gitbooks.io/qb/) for more examples.
 
 To further see FW/1 & QB in action, you can check out my [example application on GitHub](https://github.com/cfchef/fw1-qb-example).
 
